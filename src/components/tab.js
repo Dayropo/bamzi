@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { FaStar } from 'react-icons/fa'
+import { FaStar } from "react-icons/fa"
 
 const Tab = ({ product }) => {
   const [tab, setTab] = useState(0)
@@ -47,23 +47,20 @@ const Tab = ({ product }) => {
         <div className={tab === 1 ? "block" : "hidden"}>
           {product.reviews.map((review, index) => {
             let stars = []
-            
-            for (var i = 1; i <= 5; i++ ) {
+
+            for (var i = 1; i <= 5; i++) {
               let icon = <FaStar className="text-secondary" />
 
               if (i > review.rating) {
                 icon = <FaStar className="text-gray-200" />
+              }
 
-              } 
-
-              stars.push((icon))
+              stars.push(icon)
             }
 
             return (
               <div key={index} className="px-2 py-4 space-y-3">
-                <div className="flex space-x-1">
-                  { stars }
-                </div>
+                <div className="flex space-x-1">{stars}</div>
                 <p className="text-sm md:text-base ">{review.content}</p>
                 <p className="text-right text-gray-400 border-b border-b-gray-200 text-sm md:text-base">{`by ${review.name}`}</p>
               </div>
