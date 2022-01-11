@@ -22,31 +22,33 @@ export default function RelatedProducts() {
   ]
 
   return (
-    <div className="container mt-5">
-      <h5 className="fw-bold mb-4">Related Products</h5>
-      <div className="row">
+    <div className="container mt-5 px-8 lg:px-16">
+      <h5 className="font-semibold text-lg mb-4">Related Products</h5>
+      <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 justify-center">
         {related.map(item => (
           <div
-            className="card col-md-4 col-lg-3 me-3 py-3 mb-3 mb-md-0"
+            className="flex flex-col border rounded-md shadow p-4"
             key={item._id}
           >
-            <img
-              className="card-image-top"
-              height={"200px"}
-              src={item.image}
-              style={{ objectFit: "contain" }}
-              alt="item"
-            />
-            <div className="card-body mt-2">
-              <div className="d-flex mb-3">
-                <div className="d-flex bg-primary rounded px-3">
-                  <p className="text-white mt-1">{item.rating}</p>
-                  <FaStar className="text-warning ms-2 mt-2" />
+            <div className="mx-auto">
+              <img
+                className="h-36 aspect-square object-contain block"
+                src={item.image}
+                style={{ objectFit: "contain" }}
+                alt="item"
+              />
+            </div>
+
+            <div className="card-body mt-4">
+              <div className="flex justify-between mb-4">
+                <div className="flex bg-primary items-center space-x-1 rounded px-3">
+                  <span className="text-white mt-1">{item.rating}</span>
+                  <FaStar className="text-secondary" />
                 </div>
-                <div className="text-primary fs-5 fw-bold ms-auto">{`$${item.price}`}</div>
+                <div className="text-primary text-lg font-bold">{`$${item.price}`}</div>
               </div>
               <h6>{item.title}</h6>
-              <p>{item.intro}</p>
+              <p className="text-sm font-light">{item.intro}</p>
             </div>
           </div>
         ))}

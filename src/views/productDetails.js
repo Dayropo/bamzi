@@ -3,7 +3,6 @@ import { IoIosCart } from "react-icons/io"
 import { FaStoreAlt, FaChevronLeft, FaChevronRight } from "react-icons/fa"
 import Footer from "../components/footer"
 import Header from "../components/header"
-import styles from "../styles/product.module.css"
 import Tab from "../components/tab"
 import RelatedProducts from "../components/relatedProducts"
 
@@ -29,14 +28,32 @@ export default function ProductDetails() {
       },
 
       sizes: ["XL", "XXL", "M"],
-      stock: 0,
+      stock: 20,
       brand: "Apple",
       category: "Electronics",
       subCategory: "Bands",
       seller: "Evax Electronic Store",
-      description:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero assumenda impedit officia. Asperiores, dolor. Tempora, pariatur velit voluptatum voluptatibus dolores soluta earum qui saepe quaerat asperiores enim aut sequi unde?",
-      reviews: [],
+      description: {
+        content:
+          "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam adipisci rerum voluptate veniam ut perferendis laudantium vero perspiciatis blanditiis! Doloribus est fugiat veritatis quisquam dicta.",
+        image: require("../assets/apple-watch-desc.jpg"),
+      },
+      reviews: [
+        {
+          name: "John Barnes",
+          content: "I'm happy with the product.",
+        },
+        {
+          name: "David Stone",
+          content:
+            "I've been using this product for a while now and it hasn't given me any issues.",
+        },
+        {
+          name: "Mira Long",
+          content:
+            "Quality product. I recommend this for any lover of this brand.",
+        },
+      ],
     },
   ]
 
@@ -55,107 +72,125 @@ export default function ProductDetails() {
   }
 
   return (
-    <>
+    <div className="font-poppins">
       <Header />
-      <div className="container">
+      <div className="container py-6 px-8 lg:px-16">
         {products.map(product => (
           <div key={product._id}>
-            <div className="row justify-content-center my-5">
-              <div className="col-md-6 my-3">
-                <div className="row">
-                  <div className="col-2">
+            <div className="grid gap-6 md:grid-cols-2 my-5">
+              <div>
+                <div className="grid gap-2 grid-cols-8 pt-4">
+                  <div className="col-span-1">
                     {product.views.map((img, index) => (
                       <img
                         src={img}
                         alt=""
                         key={index}
-                        className={styles.views}
+                        className="lg:w-3/4 w-full aspect-square block object-contain shadow rounded-md opacity-70 hover:opacity-100 focus:opacity-100 border border-gray-200 mb-2"
                         role="button"
                         onClick={() => changeImg(index)}
                       />
                     ))}
                   </div>
-                  <div className="col-10">
+                  <div className="col-span-7">
                     <img
                       src={product.views[index]}
-                      className="img-fluid mx-auto d-block"
-                      width={"200px"}
+                      className="lg:w-1/2 w-3/4 object-contain aspect-square block mx-auto"
                       alt=""
                     />
                   </div>
                 </div>
-                <div className="d-flex mt-5 justify-content-end">
+                <div className="flex space-x-2 mt-16 justify-end">
                   <button
-                    className="btn btn-outline rounded-circle shadow-sm me-2"
+                    className="border border-gray-200 rounded-full p-2 shadow"
                     onClick={prevView}
                   >
                     <FaChevronLeft />
                   </button>
                   <button
-                    className="btn btn-outline rounded-circle shadow-sm"
+                    className="border border-gray-200 rounded-full p-2 shadow"
                     onClick={nextView}
                   >
                     <FaChevronRight />
                   </button>
                 </div>
               </div>
-              <div className="col-md-6">
-                <nav
-                  // style={"--bs-breadcrumb-divider: '>';"}
-                  aria-label="breadcrumb"
-                >
-                  <ol className="breadcrumb">
-                    <li className="breadcrumb-item">
-                      <a href="#!" className="text-decoration-none">
+
+              <div>
+                <nav className="flex mb-4" aria-label="breadcrumb">
+                  <ol className="inline-flex items-center space-x-1 md:space-x-3">
+                    <li className="self-center">
+                      <a
+                        href="#!"
+                        className="text-gray-700 hover:text-gray-900 font-medium"
+                      >
                         {product.category}
                       </a>
                     </li>
-                    <li className="breadcrumb-item">
-                      <a href="#!" className="text-decoration-none">
-                        {product.brand}
-                      </a>
+                    <li>
+                      <div className="inline-flex items-center pt-1">
+                        <FaChevronRight className="mr-1 md:mr-3 text-gray-400" />
+                        <a
+                          href="#!"
+                          className="text-gray-700 hover:text-gray-900 text-sm font-medium"
+                        >
+                          {product.brand}
+                        </a>
+                      </div>
                     </li>
-                    <li class="breadcrumb-item active" aria-current="page">
-                      {product.subCategory}
+                    <li aria-current="page">
+                      <div className="inline-flex items-center pt-1">
+                        <FaChevronRight className="mr-1 md:mr-3 text-gray-400" />
+                        <span className="text-gray-400 text-sm font-medium">
+                          {product.subCategory}
+                        </span>
+                      </div>
                     </li>
                   </ol>
                 </nav>
                 {product.stock ? (
-                  <span className="bg-primary text-center text-light py-2 px-4">
+                  <span className="bg-primary text-center text-white py-2 px-4">
                     IN STOCK
                   </span>
                 ) : (
-                  <span className="bg-secondary text-center text-light py-2 px-4">
+                  <span className="bg-gray-700 text-center text-white py-2 px-4">
                     OUT OF STOCK
                   </span>
                 )}
-                <h4 className="fw-bold mt-2 text-primary">{product.title}</h4>
-                <h2 className="fw-bolder mt-2 text-warning">{`$${product.price}`}</h2>
-                <div className="d-flex mt-3">
+                <h4 className="text-xl font-semibold mt-3 text-primary">
+                  {product.title}
+                </h4>
+                <h2 className="text-2xl font-semibold mt-1 text-secondary">{`$${product.price}`}</h2>
+                <div className="flex mt-2">
                   {product.variants.src.map((img, index) => (
-                    <img src={img} alt="" key={index} className={styles.img} />
+                    <img
+                      src={img}
+                      alt=""
+                      key={index}
+                      className="w-16 h-auto block aspect-square object-contain shadow-sm rounded-md opacity-70 hover:opacity-100 focus:opacity-100 border border-x-gray-200 mr-2"
+                    />
                   ))}
                 </div>
-                <div className="d-lg-flex mt-3">
-                  <div className="d-flex">
-                    <span className="fw-bold text-primary me-2 py-1">
+                <div className="lg:flex lg:space-x-3 mt-2">
+                  <div className="flex">
+                    <span className="font-bold text-primary mr-2 py-1">
                       Color
                     </span>
                     {product.variants.colors.map((color, index) => (
                       <button
-                        className={`me-1 ${styles.colors}`}
+                        className="w-8 h-8 border border-gray-200 rounded-md mr-1"
                         style={{ background: color }}
                         key={index}
                       ></button>
                     ))}
                   </div>
-                  <div className="d-flex mt-2 mt-lg-0">
-                    <span className="fw-bold text-primary ms-lg-4 me-2 py-1">
+                  <div className="flex mt-2 lg:mt-0">
+                    <span className="font-bold text-primary mr-2 py-1">
                       Size
                     </span>
                     {product.sizes.map((size, index) => (
                       <span
-                        className="fw-bold text-secondary text-center py-1 px-3 bg-light rounded-pill me-2"
+                        className="font-bold text-gray-500 text-center py-1 px-4 bg-gray-200 rounded-2xl mr-2"
                         key={index}
                         role="button"
                       >
@@ -164,12 +199,13 @@ export default function ProductDetails() {
                     ))}
                   </div>
                 </div>
-                {/* counter component */}
-                <button className="btn btn-primary rounded my-3 text-center text-light py-2 px-4 d-flex">
-                  <IoIosCart size={24} className="me-1" /> Add to Cart
+                <button className="bg-primary rounded-md my-3 text-center text-white py-3 px-10 flex space-x-1">
+                  <IoIosCart className="w-6 h-6" />
+                  <span>Add to Cart</span>
                 </button>
-                <span className="text-secondary">
-                  <FaStoreAlt className="me-1" /> {product.seller}
+                <span className="text-gray-400 flex space-x-1">
+                  <FaStoreAlt className="w-6 h-6" />
+                  <span>{product.seller}</span>
                 </span>
               </div>
             </div>
@@ -179,6 +215,6 @@ export default function ProductDetails() {
       </div>
       <RelatedProducts />
       <Footer />
-    </>
+    </div>
   )
 }

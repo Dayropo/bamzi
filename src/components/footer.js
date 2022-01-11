@@ -5,45 +5,40 @@ import {
   FaLinkedinIn,
   FaPinterest,
 } from "react-icons/fa"
-import "../styles/footer.module.css"
 
 export default function Footer() {
   return (
-    <footer className="text-white text-start mt-5">
-      <div
-        className="bg-primary align-items-center rounded row w-75 mx-auto py-4 px-2"
-        style={{ marginBottom: -60, zIndex: 10, position: "relative" }}
-      >
-        <div className="col-md-6">
-          <h5>Contact Us</h5>
-          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+    <footer className="text-white text-left mt-10">
+      {/**contact us */}
+      <div className="w-full md:w-3/4 lg:w-1/2 bg-primary grid md:grid-cols-2 items-center md:rounded-xl md:mx-auto py-6 px-8 relative md:-mb-12">
+        <div>
+          <h5 className="text-lg font-semibold">Contact Us!</h5>
+          <p className="text-sm font-light mt-2">
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+          </p>
         </div>
-        <div className="col-md-6">
-          <div className="d-flex bg-white align-items-center rounded-pill p-2">
-            <form>
-              <div className="input-group">
-                <input
-                  type="text"
-                  className="form-control rounded-pill border-0"
-                  placeholder="Email here"
-                />
-              </div>
-            </form>
-            <button className="btn btn-warning rounded-pill my-1 ms-auto py-2 px-4 text-white">
+        <form action="">
+          <div className="relative flex items-center mt-4 md:mt-0">
+            <input
+              type="text"
+              name="email"
+              className="py-3 px-4 rounded-3xl border-none w-full placeholder:text-gray-500 text-black"
+              placeholder="Email here"
+              autoComplete="off"
+              aria-label="Email here"
+            />
+            <button className="bg-secondary rounded-3xl py-2 px-6 absolute right-1">
               Send
             </button>
           </div>
-        </div>
+        </form>
       </div>
-      <div
-        className="container-fluid p-4 mt-1"
-        style={{ backgroundColor: "rgba(48, 48, 48, 255)" }}
-      >
-        {/** contact us */}
 
-        <section className="container mt-5">
-          <div className="row">
-            <div className="col-lg-3 col-md-6 mb-4 mb-lg-0">
+      {/**main footer */}
+      <div className="w-full bg-darkGray">
+        <section className="md:container md:mx-auto px-6 pt-8 md:pt-24 pb-8">
+          <div className="grid gap-y-6 grid-cols-2 md:grid-cols-4">
+            <div>
               <a href="/">
                 <img
                   src={require("../assets/BAMZI.png")}
@@ -51,140 +46,73 @@ export default function Footer() {
                   alt="bamzi"
                 />
               </a>
-
-              <div className="d-flex mt-3 pe-5">
+              <div className="flex space-x-4 mt-8">
                 <a
                   href="#!"
-                  className="btn btn-outline-secondary rounded-circle"
+                  className="text-gray-400 hover:text-white rounded-full ring-2 ring-gray-400 hover:ring-white p-1"
                 >
                   <FaFacebookF />
                 </a>
                 <a
                   href="#!"
-                  className="btn btn-outline-secondary rounded-circle ms-2"
+                  className="text-gray-400 hover:text-white rounded-full ring-2 ring-gray-400 hover:ring-white p-1 "
                 >
                   <FaTwitter />
                 </a>
                 <a
                   href="#!"
-                  className="btn btn-outline-secondary rounded-circle ms-2"
+                  className="text-gray-400 hover:text-white rounded-full ring-2 ring-gray-400 hover:ring-white p-1"
                 >
                   <FaLinkedinIn />
                 </a>
                 <a
                   href="#!"
-                  className="btn btn-outline-secondary rounded-circle ms-2"
+                  className="text-gray-400 hover:text-white rounded-full ring-2 ring-gray-400 hover:ring-white p-1"
                 >
                   <FaPinterest />
                 </a>
               </div>
-
-              <div className="row row-cols-4 gx-0 gy-2 pe-5 mt-3">
-                <div className="col">
-                  <img src={require("../assets/D1-image01.png")} alt="" />
-                </div>
-                <div className="col">
-                  <img src={require("../assets/D1-image02.png")} alt="" />
-                </div>
-                <div className="col">
-                  <img src={require("../assets/D1-image03.png")} alt="" />
-                </div>
-                <div className="col">
-                  <img src={require("../assets/D1-image04.png")} alt="" />
-                </div>
-                <div className="col">
-                  <img src={require("../assets/D1-image05.png")} alt="" />
-                </div>
-                <div className="col">
-                  <img src={require("../assets/D1-image06.png")} alt="" />
-                </div>
-                <div className="col">
-                  <img src={require("../assets/D1-image07.png")} alt="" />
-                </div>
-                <div className="col">
-                  <img src={require("../assets/D1-image08.png")} alt="" />
-                </div>
+              <div className="grid grid-cols-4 gap-x-1 gap-y-2 mt-4 pr-20">
+                <img src={require("../assets/D1-image01.png")} alt="" />
+                <img src={require("../assets/D1-image02.png")} alt="" />
+                <img src={require("../assets/D1-image03.png")} alt="" />
+                <img src={require("../assets/D1-image04.png")} alt="" />
+                <img src={require("../assets/D1-image05.png")} alt="" />
+                <img src={require("../assets/D1-image06.png")} alt="" />
+                <img src={require("../assets/D1-image07.png")} alt="" />
+                <img src={require("../assets/D1-image08.png")} alt="" />
               </div>
             </div>
 
-            <div className="col-lg-3 col-6 mb-4 mb-lg-0">
-              <h6>Links</h6>
-
-              <ul className="list-unstyled mt-3 mb-0">
-                <li>
-                  <a href="#!" className="text-secondary text-decoration-none">
-                    Home
-                  </a>
-                </li>
-                <li>
-                  <a href="#!" className="text-secondary text-decoration-none">
-                    Pricing
-                  </a>
-                </li>
-                <li>
-                  <a href="#!" className="text-secondary text-decoration-none">
-                    Download
-                  </a>
-                </li>
-                <li>
-                  <a href="#!" className="text-secondary text-decoration-none">
-                    About
-                  </a>
-                </li>
-                <li>
-                  <a href="#!" className="text-secondary text-decoration-none">
-                    Service
-                  </a>
-                </li>
-              </ul>
+            <div>
+              <h6 className="font-semibold mb-6">Links</h6>
+              <div className="flex flex-col space-y-2 font-light text-gray-400">
+                <a href="/">Home</a>
+                <a href="#!">Pricing</a>
+                <a href="#!">Download</a>
+                <a href="#!">About</a>
+                <a href="#!">Service</a>
+              </div>
             </div>
 
-            <div className="col-lg-3 col-6 mb-4 mb-lg-0">
-              <h6>Support</h6>
-
-              <ul className="list-unstyled mt-3 mb-0">
-                <li>
-                  <a href="#!" className="text-secondary text-decoration-none">
-                    FAQ
-                  </a>
-                </li>
-                <li>
-                  <a href="#!" className="text-secondary text-decoration-none">
-                    How to
-                  </a>
-                </li>
-                <li>
-                  <a href="#!" className="text-secondary text-decoration-none">
-                    Features
-                  </a>
-                </li>
-                <li>
-                  <a href="#!" className="text-secondary text-decoration-none">
-                    Contact
-                  </a>
-                </li>
-                <li>
-                  <a href="#!" className="text-secondary text-decoration-none">
-                    Reporting
-                  </a>
-                </li>
-              </ul>
+            <div>
+              <h6 className="font-semibold mb-6">Support</h6>
+              <div className="flex flex-col space-y-2 font-light text-gray-400">
+                <a href="#!">FAQ</a>
+                <a href="#!">How To</a>
+                <a href="#!">Features</a>
+                <a href="#!">Contact</a>
+                <a href="#!">Reporting</a>
+              </div>
             </div>
 
-            <div className="col-lg-3 col-6 mb-4 mb-lg-0">
-              <h6>Contact Us</h6>
-
-              <ul className="list-unstyled mt-3 mb-0">
-                <li>
-                  <span className="text-secondary">+880 1234 5678</span>
-                </li>
-                <li>
-                  <span className="text-secondary">example@email.com</span>
-                </li>
-                <li>
-                  <span className="text-secondary">Rangpur City</span>
-                </li>
-              </ul>
+            <div>
+              <h6 className="font-semibold mb-6">Contact Us</h6>
+              <div className="flex flex-col space-y-2 font-light text-gray-400">
+                <span>+880 1234 5678</span>
+                <span>example@email.com</span>
+                <span>Rangpur City</span>
+              </div>
             </div>
           </div>
         </section>
