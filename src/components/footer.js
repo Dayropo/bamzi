@@ -46,7 +46,7 @@ export default function Footer() {
                   alt="bamzi"
                 />
               </a>
-              <div className="flex space-x-4 mt-8">
+              <div className="flex space-x-2 lg:space-x-4 mt-8">
                 <a
                   href="#!"
                   className="text-gray-400 hover:text-white rounded-full ring-2 ring-gray-400 hover:ring-white p-1"

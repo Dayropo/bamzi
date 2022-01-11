@@ -42,16 +42,19 @@ export default function ProductDetails() {
         {
           name: "John Barnes",
           content: "I'm happy with the product.",
+          rating: 4,
         },
         {
           name: "David Stone",
           content:
             "I've been using this product for a while now and it hasn't given me any issues.",
+          rating: 3,
         },
         {
           name: "Mira Long",
           content:
             "Quality product. I recommend this for any lover of this brand.",
+          rating: 5,
         },
       ],
     },
