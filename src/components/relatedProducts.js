@@ -1,5 +1,6 @@
 import React from "react"
-import { FaStar } from "react-icons/fa"
+
+import Card from "./card"
 
 export default function RelatedProducts() {
   const related = [
@@ -26,30 +27,8 @@ export default function RelatedProducts() {
       <h5 className="font-semibold text-lg mb-4">Related Products</h5>
       <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 justify-center">
         {related.map(item => (
-          <div
-            className="flex flex-col border rounded-md shadow p-4"
-            key={item._id}
-          >
-            <div className="mx-auto">
-              <img
-                className="h-36 aspect-square object-contain block"
-                src={item.image}
-                style={{ objectFit: "contain" }}
-                alt="item"
-              />
-            </div>
-
-            <div className="card-body mt-4">
-              <div className="flex justify-between mb-4">
-                <div className="flex bg-primary items-center space-x-1 rounded px-3">
-                  <span className="text-white mt-1">{item.rating}</span>
-                  <FaStar className="text-secondary" />
-                </div>
-                <div className="text-primary text-lg font-bold">{`$${item.price}`}</div>
-              </div>
-              <h6>{item.title}</h6>
-              <p className="text-sm font-light">{item.intro}</p>
-            </div>
+          <div key={item._id}>
+            <Card product={item} />
           </div>
         ))}
       </div>

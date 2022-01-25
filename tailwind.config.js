@@ -10,7 +10,10 @@ module.exports = {
       fontFamily: {
         poppins: "Poppins",
       },
+      backgroundImage: {
+        seller: "url(../assets/seller-bg.png)",
+        drawer: "url(../assets/bg-drawer.png)"
+      }
     },
   },
-  plugins: [],
 }
